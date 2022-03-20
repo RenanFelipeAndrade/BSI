@@ -1,0 +1,112 @@
+Renan Andrade
+
+leap frogs
+
+1 primeiro verde avança
+
+2 primeiro marrom avança
+
+3 segundo marrom avança
+
+4 primeiro verde avança
+
+5 segundo verde avança
+
+6 terceiro verde avança
+
+7 primeiro marrom avança
+
+8 segundo marrom avança
+
+9 terceiro marrom avança
+
+10 primeiro verde avança
+
+11 segundo verde avança
+
+12 terceiro verde avança
+
+13 segundo marrom avança
+
+14 terceiro marrom avança
+
+15 terceiro verde avança
+
+-----------------
+ovelha e lobo
+
+vai ovelha
+volta vazio
+vai lobo
+volta ovelha
+vai repolho
+volta vazio
+vai ovelha
+
+-----------------
+missionários e canibais
+
+vão anjo e canibal
+volta anjo 
+vão 2 canibais
+volta canibal
+vão 2 anjos
+volta anjo e canibal 
+vão dois anjos
+volta canibal
+vão 2 cabinal
+volta canibal
+vão 2 canibal
+
+-----------------
+teste de einstein
+
+1. casa1 recebe norueguês como nacionalidade (O Norueguês vive na primeira casa)
+
+2. casa3 recebe leite como bebida (O homem que vive na casa do meio bebe Leite)
+
+3. casa2 recebe azul como cor (O Norueguês vive ao lado da casa Azul)
+
+4. casa4 recebe verde como cor (A casa Verde fica do lado esquerdo da casa Branca) - havendo a bebida leite na casa3, torna-se impossível desta ser verde, uma vez que "O homem que vive na casa Verde bebe Café".
+
+5. casa5 recebe branco como cor (A casa Verde fica do lado esquerdo da casa Branca)
+
+6. casa4 recebe café como bebida (O homem que vive na casa Verde bebe Café)
+
+7. casa3 recebe vermelho como cor (O Inglês vive na casa Vermelha) - pelo norueguês estar na primeira casa, obrigatoriamente a cor vermelha fica na casa3
+
+8. casa3 recebe inglês como nacionalidade (O Inglês vive na casa Vermelha)
+
+9. casa1 recebe amarelo como cor - única cor restante
+
+10. casa1 recebe Dunhill como cigarro (O homem que vive na casa Amarela fuma Dunhill)
+
+11. casa2 recebe cavalos como animal (O homem que cria Cavalos vive ao lado do que fuma Dunhill)
+
+12. casa2 recebe blends como cigarro (O homem que fuma Blends vive ao lado do que tem Gatos) - as casas das extremidades estão eliminadas, pois a casa vizinha obrigatoriamente receberia gato como animal e água como bebida, contudo as casas 2 e 4 já possuem valores que conflitariam a condição. Se a casa4 receber blends como cigarro, casa3 obrigatoriamente recebe gatos como animal já que apenas a casa5 corresponderia a "O homem que fuma Pall Mall cria Pássaros", contudo a casa5 deve receber água como bebida, conflitando com as afirmações "O Dinamarquês bebe Chá" e "O homem que fuma Blue Master bebe Cerveja". Se a casa3 receber blends como cigarro, a casa5 obrigatoriamente recebe gatos como animal e a casa2 água como bebida, contudo isto gera o mesmo conflito do caso anterior.
+
+13. casa1 recebe água como bebida (O homem que fuma Blends é vizinho do que bebe Água)
+
+14. casa5 recebe blue master como cigarro (O homem que fuma Blue Master bebe Cerveja)
+
+15. casa5 recebe cerveja como bebida (O homem que fuma Blue Master bebe Cerveja)
+
+16. casa4 recebe prince como cigarro O Alemão fuma Prince)
+
+17. casa4 recebe alemão como nacionalidade (O Alemão fuma Prince)
+
+18. casa3 recebe pall mall como cigarro (O homem que fuma Pall Mall cria Pássaros)
+
+19. casa3 recebe pássaros como animal (O homem que fuma Pall Mall cria Pássaros)
+
+20. casa5 recebe sueco como nacionalidade (O Sueco tem Cachorros como animais de estimação)
+
+21. casa5 recebe cachorros como animal (O Sueco tem Cachorros como animais de estimação)
+
+22. casa2 recebe dinamarquês como nacionalidade (O Dinamarquês bebe Chá)
+
+23. casa2 recebe chá como bebida (O Dinamarquês bebe Chá)
+
+24. casa1 recebe gatos como animal (O homem que fuma Blends vive ao lado do que tem Gatos)
+
+25. casa4 recebe peixes como animal (O homem que fuma Blends vive ao lado do que tem Gatos)

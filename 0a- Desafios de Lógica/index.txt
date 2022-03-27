@@ -32,7 +32,7 @@ leap frogs
 
 15 terceiro verde avança
 
------------------
+------------------
 ovelha e lobo
 
 vai ovelha
@@ -83,15 +83,15 @@ teste de einstein
 
 11. casa2 recebe cavalos como animal (O homem que cria Cavalos vive ao lado do que fuma Dunhill)
 
-12. casa2 recebe blends como cigarro (O homem que fuma Blends vive ao lado do que tem Gatos) - as casas das extremidades estão eliminadas, pois a casa vizinha obrigatoriamente receberia gato como animal e água como bebida, contudo as casas 2 e 4 já possuem valores que conflitariam a condição. Se a casa4 receber blends como cigarro, casa3 obrigatoriamente recebe gatos como animal já que apenas a casa5 corresponderia a "O homem que fuma Pall Mall cria Pássaros", contudo a casa5 deve receber água como bebida, conflitando com as afirmações "O Dinamarquês bebe Chá" e "O homem que fuma Blue Master bebe Cerveja". Se a casa3 receber blends como cigarro, a casa5 obrigatoriamente recebe gatos como animal e a casa2 água como bebida, contudo isto gera o mesmo conflito do caso anterior.
+12. casa1 recebe água como bebida - "O homem que fuma Blue Master bebe Cerveja" e "O Dinamarquês bebe Chá" necessitam da casa2 e casa5 obrigatoriamente, pois são as únicas com espaços vagos. 
 
-13. casa1 recebe água como bebida (O homem que fuma Blends é vizinho do que bebe Água)
+13. casa2 recebe blends como cigarro (O homem que fuma Blends é vizinho do que bebe Água)
 
 14. casa5 recebe blue master como cigarro (O homem que fuma Blue Master bebe Cerveja)
 
 15. casa5 recebe cerveja como bebida (O homem que fuma Blue Master bebe Cerveja)
 
-16. casa4 recebe prince como cigarro O Alemão fuma Prince)
+16. casa4 recebe prince como cigarro (O Alemão fuma Prince) 
 
 17. casa4 recebe alemão como nacionalidade (O Alemão fuma Prince)
 
@@ -109,4 +109,4 @@ teste de einstein
 
 24. casa1 recebe gatos como animal (O homem que fuma Blends vive ao lado do que tem Gatos)
 
-25. casa4 recebe peixes como animal (O homem que fuma Blends vive ao lado do que tem Gatos)
+25. casa4 recebe peixes como animal

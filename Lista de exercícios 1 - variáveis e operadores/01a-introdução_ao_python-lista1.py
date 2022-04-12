@@ -1,6 +1,9 @@
 # Lista de exercícios 1 - variáveis e operadores
 
 
+from math import floor
+
+
 def soma_dois_inteiros(a, b):
     """Recebe dois números inteiros, e retorna a sua soma.
 
@@ -11,6 +14,8 @@ def soma_dois_inteiros(a, b):
     Retorna:
         int: a soma dos dois valores.
     """
+
+    return a + b
 
 
 def metro_para_milimetros(metros):
@@ -23,6 +28,7 @@ def metro_para_milimetros(metros):
     Retorna:
         float: o valor convertido para milimetros,
     """
+    return metros * 1000
 
 
 def tempo_para_percorrer_uma_distancia(distancia, velocidade):
@@ -36,6 +42,7 @@ def tempo_para_percorrer_uma_distancia(distancia, velocidade):
     Retorna:
         float: o tempo, em horas.
     """
+    return round(distancia / velocidade, 2)
 
 
 def aumento_salarial(salario, porcentagem):
@@ -49,6 +56,7 @@ def aumento_salarial(salario, porcentagem):
     Retorna:
         float: o novo salário, com duas casas decimais.
     """
+    return round(salario * (1 + porcentagem / 100), 2)
 
 
 def preco_com_desconto(preco_original, percentual_desconto):
@@ -62,6 +70,7 @@ def preco_com_desconto(preco_original, percentual_desconto):
     Returns:
         float: o preço final, após o desconto, com duas casas decimais.
     """
+    return round(preco_original * (1 - percentual_desconto / 100), 2)
 
 
 def dias_para_segundos(dias, horas, minutos, segundos):
@@ -77,6 +86,7 @@ def dias_para_segundos(dias, horas, minutos, segundos):
     Retorna:
         int: a quantidade de segundos equivalente aos valores de dias, horas, minutos e segundos.
     """
+    return dias * 24 * 60 * 60 + horas * 60 * 60 + minutos * 60 + segundos
 
 
 def celsius_para_fahrenheit(celsius):
@@ -89,6 +99,7 @@ def celsius_para_fahrenheit(celsius):
     Retorna:
         float: a temperatura em graus Farenheit.
     """
+    return round(celsius * 1.8 + 32, 2)
 
 
 def fahrenheit_para_celsius(farenheit):
@@ -101,6 +112,7 @@ def fahrenheit_para_celsius(farenheit):
     Retorna:
         float: a temperatura em graus Celsius.
     """
+    return round((farenheit - 32) / 1.8, 2)
 
 
 def preco_aluguel_carro(dias, km):
@@ -116,6 +128,7 @@ def preco_aluguel_carro(dias, km):
         float: o preço do aluguel do carro, com 2 casas decimais,
                 conforme a fórmula dada no enunciado.
     """
+    return round(dias * 60 + km * 0.15, 2)
 
 
 def dias_perdidos_por_fumar(cigarros_fumados_por_dia, anos_fumando):
@@ -130,6 +143,7 @@ def dias_perdidos_por_fumar(cigarros_fumados_por_dia, anos_fumando):
     Retorna:
         int: a quantidade de dias que a pessoa perdeu por fumar.
     """
+    return floor(((cigarros_fumados_por_dia * 10) / 60 / 24) * anos_fumando * 365)
 
 
 def dois_elevado_a_dez_mil():
@@ -139,6 +153,7 @@ def dois_elevado_a_dez_mil():
     Retorna:
         int: a quantidade de algarismos que o resultado contém.
     """
+    return len(str(2**10000))
 
 
 def media_final_aprovado_reprovado(p1, p2, ep1, ep2):
@@ -158,6 +173,7 @@ def media_final_aprovado_reprovado(p1, p2, ep1, ep2):
     Returns:
         bool: True ou False, dependendo da média ser maior ou igual a 7 ou não.
     """
+    return (p1 * 7 + p2 * 7 + ep1 * 3 + ep2 * 3) / 20 >= 7
 
 
 def salario(valor_hora, horas_mensais):
@@ -177,6 +193,14 @@ def salario(valor_hora, horas_mensais):
         float: o salário líquido, após todos os descontos.
     """
 
+    salario_bruto = valor_hora * horas_mensais
+
+    taxas = {"inss": 0.08, "IR": 0.11, "sindicato": 0.05}
+    salario_liquido = round(salario_bruto -
+                            (salario_bruto * taxas["inss"] + salario_bruto *
+                             taxas["IR"] + salario_bruto * taxas["sindicato"]), 2)
+    return salario_liquido
+
 
 def duzias(ovos):
     """Receba o número de ovos e devolva a quantidade de dúzias
@@ -190,6 +214,7 @@ def duzias(ovos):
         int: a quantidade de dúzias correspondente à quantidade de ovos,
             arredondado pra cima.
     """
+    return 1 + ovos // 12 if ovos % 12 > 0 else ovos // 12
 
 
 def tinta(metros_pintar):
@@ -204,6 +229,8 @@ def tinta(metros_pintar):
     Retorna:
         int: a quantidade de latas de tinta, arredondado pra cima.
     """
+    capacidade_lata = 3 * 18
+    return int(1 + metros_pintar // (capacidade_lata) if metros_pintar % (capacidade_lata) > 0 else metros_pintar // (capacidade_lata))
 
 
 def decompor_numero(n):
@@ -217,6 +244,15 @@ def decompor_numero(n):
     Retorna:
         tupla de inteiros, com as centenas, dezenas e unidades do numero.
     """
+    hundreds = n // 100
+    n -= hundreds * 100
+
+    dozens = n // 10
+    n -= dozens * 10
+
+    unities = n
+
+    return (hundreds, dozens, unities)
 
 
 # Área de testes: só mexa aqui se souber o que está fazendo!

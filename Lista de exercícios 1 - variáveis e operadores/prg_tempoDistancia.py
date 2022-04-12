@@ -1,7 +1,7 @@
 speed = float(input("Insira a velocidade (km/h): "))
 distance = float(input("Insira a distância a ser percorrida (km): "))
 
-hours_spent = distance / speed
+hours_spent = round(distance / speed, 2)
 
 
 print(

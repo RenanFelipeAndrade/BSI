@@ -30,6 +30,11 @@ def troca_caixa(texto):
     Retorna:
         string: o texto convertido, conforme o enunciado.
     """
+    vogais = ["a", "e", "i", "o", "u"]
+    texto_caixa_alta = ""
+    for letra in texto:
+        texto_caixa_alta += letra.upper() if letra.lower() in vogais else letra.lower()
+    return texto_caixa_alta
 
 
 def imprime_mes_por_extenso(data):
@@ -42,6 +47,25 @@ def imprime_mes_por_extenso(data):
     Retorna:
         string: a data, no formato "99 de mês de 9999".
     """
+    meses = {
+        "01": "janeiro",
+        "02": "fevereiro",
+        "03": "março",
+        "04": "abril",
+        "05": "maio",
+        "06": "junho",
+        "07": "julho",
+        "08": "agosto",
+        "09": "setembro",
+        "10": "outubro",
+        "11": "novembro",
+        "12": "dezembro",
+    }
+    data_limpa = data.split("/")
+    data_formatada = "".join(
+        f"{data_limpa[0]} de {meses[data_limpa[1]]} de {data_limpa[2]}"
+    )
+    return data_formatada
 
 
 def encontra_caracter(texto, caracter_procurado):
@@ -214,8 +238,7 @@ def test(obtido, esperado):
         prefixo = "\033[32m%s" % "Passou"
         acertos += 1
     print(
-        "%s Esperado: %s \tObtido: %s\033[1;m" % (
-            prefixo, repr(esperado), repr(obtido))
+        "%s Esperado: %s \tObtido: %s\033[1;m" % (prefixo, repr(esperado), repr(obtido))
     )
 
 
@@ -301,10 +324,8 @@ def main():
     test(mes_extenso(12), "dez")
 
     print("Média das temperaturas:")
-    test(media_temperaturas(
-        [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]), 10.0)
-    test(media_temperaturas(
-        [10, 12, 9, 13, 12, 10, 9, 13, 10, 12, 9, 13]), 11.0)
+    test(media_temperaturas([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]), 10.0)
+    test(media_temperaturas([10, 12, 9, 13, 12, 10, 9, 13, 10, 12, 9, 13]), 11.0)
 
     print("leet")
     test(leet("ifc"), "1fc")

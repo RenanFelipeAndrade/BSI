@@ -14,6 +14,11 @@ def palindromo(texto):
         bool: True ou False, dependendo dd texto ser palíndromo ou não.
     """
 
+    # remove caracteres especiais
+    texto_limpo = "".join(letra for letra in texto if letra.isalnum())
+    texto_invertido = texto_limpo[::-1]
+    return texto_limpo.lower() == texto_invertido.lower()
+
 
 def troca_caixa(texto):
     """Vogais ficam em caixa alta (maiúsculas)
@@ -209,7 +214,8 @@ def test(obtido, esperado):
         prefixo = "\033[32m%s" % "Passou"
         acertos += 1
     print(
-        "%s Esperado: %s \tObtido: %s\033[1;m" % (prefixo, repr(esperado), repr(obtido))
+        "%s Esperado: %s \tObtido: %s\033[1;m" % (
+            prefixo, repr(esperado), repr(obtido))
     )
 
 
@@ -295,8 +301,10 @@ def main():
     test(mes_extenso(12), "dez")
 
     print("Média das temperaturas:")
-    test(media_temperaturas([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]), 10.0)
-    test(media_temperaturas([10, 12, 9, 13, 12, 10, 9, 13, 10, 12, 9, 13]), 11.0)
+    test(media_temperaturas(
+        [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]), 10.0)
+    test(media_temperaturas(
+        [10, 12, 9, 13, 12, 10, 9, 13, 10, 12, 9, 13]), 11.0)
 
     print("leet")
     test(leet("ifc"), "1fc")

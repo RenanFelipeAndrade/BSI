@@ -79,6 +79,7 @@ def encontra_caracter(texto, caracter_procurado):
     Returns:
         int: a posição do caracter procurado no texto.
     """
+    return texto.index(caracter_procurado)
 
 
 def é_azarado(numero):
@@ -90,6 +91,7 @@ def é_azarado(numero):
     Retorna:
         bool: True ou False, baseado no enunciado.
     """
+    return numero[:1:] == numero[-1::]
 
 
 def ordenamento_contrario(lista):
@@ -101,6 +103,7 @@ def ordenamento_contrario(lista):
     Retorna:
         list: uma lista com os elementos em ordem inversa.
     """
+    return lista[::-1]
 
 
 def maximo(lista):
@@ -112,6 +115,8 @@ def maximo(lista):
     Retorna:
         int: o maior elemento da lista.
     """
+    lista.sort()
+    return lista[-1]
 
 
 def minimo(lista):
@@ -123,6 +128,8 @@ def minimo(lista):
     Retorna:
         int: o menor elemento da lista.
     """
+    lista.sort()
+    return lista[0]
 
 
 def maior_menor(lista):
@@ -134,6 +141,8 @@ def maior_menor(lista):
     Retorna:
         uma tupla com dois números inteiros, o maior e o menor da lista.
     """
+    lista.sort()
+    return (lista[-1], lista[0])
 
 
 def media_saltos_lista(saltos):
@@ -146,6 +155,13 @@ def media_saltos_lista(saltos):
     Retorna:
         float: a média dos saltos, de acordo com o enunciado.
     """
+    saltos.sort()
+    saltos = saltos[1:-1:]
+    pontuacao_salto = 0
+    for salto in saltos:
+        pontuacao_salto += salto
+    media_saltos = round(pontuacao_salto / len(saltos), 2)
+    return media_saltos
 
 
 def contem(lista, item_procurado):
@@ -158,6 +174,7 @@ def contem(lista, item_procurado):
     Returns:
         bool: um valor booleano (True/False), de acordo com o enunciado.
     """
+    return item_procurado in lista
 
 
 def conta(lista, item_procurado):
@@ -170,6 +187,7 @@ def conta(lista, item_procurado):
     Returns:
         int: a quantidade de ocorrências do item procurado na lista.
     """
+    return lista.count(item_procurado)
 
 
 def mes_extenso(mes):
@@ -184,6 +202,21 @@ def mes_extenso(mes):
     Returns:
         string: a abreviatura do nome do mês, com 3 dígitos.
     """
+    meses = [
+        "jan",
+        "fev",
+        "mar",
+        "abr",
+        "mai",
+        "jun",
+        "jul",
+        "ago",
+        "set",
+        "out",
+        "nov",
+        "dez",
+    ]
+    return meses[mes - 1]
 
 
 def media_temperaturas(temperaturas):
@@ -195,6 +228,11 @@ def media_temperaturas(temperaturas):
     Retorna:
         float: a média das temperaturas.
     """
+    soma_temperatura = 0
+    for temperatura in temperaturas:
+        soma_temperatura += temperatura
+    media_temperatura = round(soma_temperatura / len(temperaturas), 2)
+    return media_temperatura
 
 
 def leet(texto):
@@ -209,6 +247,23 @@ def leet(texto):
     Retorna:
         string: o texto convertido, conforme o enunciado.
     """
+    dicionario_troca_leet = {
+        "a": "4",
+        "e": "3",
+        "g": "9",
+        "i": "1",
+        "s": "5",
+        "t": "7",
+        "o": "0",
+    }
+    texto_leet = ""
+    for letra in texto:
+        texto_leet += (
+            dicionario_troca_leet[letra.lower()]
+            if letra.lower() in dicionario_troca_leet
+            else letra
+        )
+    return texto_leet
 
 
 def apaga(texto, n):
@@ -222,6 +277,8 @@ def apaga(texto, n):
     Retorna:
         string: o texto convertido, conforme o enunciado.
     """
+    texto = texto[:n:] + texto[n + 1 : :]
+    return texto
 
 
 # Área de testes: só mexa aqui se souber o que está fazendo!

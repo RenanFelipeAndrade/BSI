@@ -1,4 +1,5 @@
 # Lista de exercícios - Condições
+from math import sqrt
 
 
 def maior3(a, b, c):
@@ -12,6 +13,9 @@ def maior3(a, b, c):
     Retorna:
         float: o maior entre os três valores.
     """
+    numeros = [a, b, c]
+    numeros.sort()
+    return numeros[2]
 
 
 def menor3(a, b, c):
@@ -25,6 +29,9 @@ def menor3(a, b, c):
     Retorna:
         float: o menor entre os três valores.
     """
+    numeros = [a, b, c]
+    numeros.sort()
+    return numeros[0]
 
 
 def testa_lados(a, b, c):
@@ -41,6 +48,21 @@ def testa_lados(a, b, c):
         string: um texto indicando o resultado,
                 conforme aparece nos testes no final desse arquivo.
     """
+    if not (a + b >= c and b + c >= a and a + c >= b):
+        return "Não forma um triângulo"
+
+    tipo_triangulo = ""
+    if a != b and a != c and c != b:
+        tipo_triangulo = "Triângulo escaleno"
+    elif (
+        (a == b and a != c and c != b)
+        or (c == b and a != b and a != c)
+        or (c != b and a != b and a == c)
+    ):
+        tipo_triangulo = "Triângulo isósceles"
+    else:
+        tipo_triangulo = "Triângulo equilátero"
+    return tipo_triangulo
 
 
 def ano_bissexto(ano):
@@ -53,6 +75,7 @@ def ano_bissexto(ano):
         bool: True ou False (verdadeiro ou falso), caso a ano seja ou não bissexto.
 
     """
+    return ano % 400 == 0 or (ano % 4 == 0 and ano % 100 != 0)
 
 
 def maior_dia_do_mes(mes, ano):
@@ -69,6 +92,24 @@ def maior_dia_do_mes(mes, ano):
     Retorna:
         int: um inteiro indicando o último dia válido para aquele mês e ano.
     """
+    meses = {
+        1: 31,
+        2: 28,
+        3: 31,
+        4: 30,
+        5: 31,
+        6: 30,
+        7: 31,
+        8: 31,
+        9: 30,
+        10: 31,
+        11: 30,
+        12: 31,
+    }
+    if ano_bissexto(ano) and mes == 2:
+        return meses[2] + 1
+    else:
+        return meses[mes]
 
 
 def data_valida(data):
@@ -83,6 +124,33 @@ def data_valida(data):
     Retorna:
         bool: True ou False, indicando se a datá é válida ou não.
     """
+    meses = {
+        1: 31,
+        2: 28,
+        3: 31,
+        4: 30,
+        5: 31,
+        6: 30,
+        7: 31,
+        8: 31,
+        9: 30,
+        10: 31,
+        11: 30,
+        12: 31,
+    }
+    data_limpa = data.split("/")
+    dia = int(data_limpa[0])
+    mes = int(data_limpa[1])
+    ano = int(data_limpa[2])
+
+    if not mes in meses or ano == 0:
+        return False
+    elif mes == 2 and ano_bissexto(ano):
+        return dia <= meses[mes] + 1 and dia > 0
+    elif dia > meses[mes] or dia < 1:
+        return False
+    else:
+        return True
 
 
 def baskara(a, b, c):
@@ -106,6 +174,16 @@ def baskara(a, b, c):
         tupla de floats: uma tupla, contando os valores das raízes, sendo
         uma raiz, duas raízes ou uma tupla vazia caso não existam raízes.
     """
+    if a == 0:
+        return (-c / b,)
+
+    delta = b**2 - 4 * a * c
+    if delta < 0:
+        return ()
+    elif delta == 0:
+        return ((-b + sqrt(delta)) / 2,)
+    else:
+        return ((-b + sqrt(delta)) / 2, (-b - sqrt(delta)) / 2)
 
 
 def acrescimo_nota_bb(nota_sozinho, nota_com_ajuda):
@@ -121,6 +199,10 @@ def acrescimo_nota_bb(nota_sozinho, nota_com_ajuda):
     Retorna:
         float: o acréscimo na nota obtido pelo aluno que ajudou seu colega.
     """
+    if nota_com_ajuda < 0 or nota_com_ajuda <= nota_sozinho:
+        return 0.0
+    else:
+        return round((nota_com_ajuda - nota_sozinho) * (0.25), 1)
 
 
 # Área de testes: só mexa aqui se souber o que está fazendo!

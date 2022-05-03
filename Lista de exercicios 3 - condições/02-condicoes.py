@@ -48,12 +48,15 @@ def testa_lados(a, b, c):
         string: um texto indicando o resultado,
                 conforme aparece nos testes no final desse arquivo.
     """
+    # se a soma de 2 lados deve ser igual ou maior que o lado restante
     if not (a + b >= c and b + c >= a and a + c >= b):
         return "Não forma um triângulo"
 
     tipo_triangulo = ""
+    # se os 3 lados são diferentes
     if a != b and a != c and c != b:
         tipo_triangulo = "Triângulo escaleno"
+    # se os 2 lados são diferentes
     elif (
         (a == b and a != c and c != b)
         or (c == b and a != b and a != c)
@@ -75,6 +78,7 @@ def ano_bissexto(ano):
         bool: True ou False (verdadeiro ou falso), caso a ano seja ou não bissexto.
 
     """
+    # se o ano é divisível por 400 ou por 4 e não por 100
     return ano % 400 == 0 or (ano % 4 == 0 and ano % 100 != 0)
 
 

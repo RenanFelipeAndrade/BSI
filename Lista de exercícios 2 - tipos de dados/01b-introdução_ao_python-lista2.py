@@ -33,6 +33,7 @@ def troca_caixa(texto):
     vogais = ["a", "e", "i", "o", "u"]
     texto_caixa_alta = ""
     for letra in texto:
+        # concatena em caixa alta se a letra for vogal
         texto_caixa_alta += letra.upper() if letra.lower() in vogais else letra.lower()
     return texto_caixa_alta
 
@@ -62,9 +63,11 @@ def imprime_mes_por_extenso(data):
         "12": "dezembro",
     }
     data_limpa = data.split("/")
-    data_formatada = "".join(
-        f"{data_limpa[0]} de {meses[data_limpa[1]]} de {data_limpa[2]}"
-    )
+    dia = data_limpa[0]
+    mes = meses[data_limpa[1]]
+    ano = data_limpa[2]
+
+    data_formatada = "".join(f"{dia} de {mes} de {ano}")
     return data_formatada
 
 
@@ -258,6 +261,7 @@ def leet(texto):
     }
     texto_leet = ""
     for letra in texto:
+        # concatena em leet se a letra estiver no dicionário
         texto_leet += (
             dicionario_troca_leet[letra.lower()]
             if letra.lower() in dicionario_troca_leet

@@ -31,6 +31,7 @@ def menor3(a, b, c):
     """
     numeros = [a, b, c]
     numeros.sort()
+    # max(numeros) é uma alternativa
     return numeros[0]
 
 
@@ -48,7 +49,7 @@ def testa_lados(a, b, c):
         string: um texto indicando o resultado,
                 conforme aparece nos testes no final desse arquivo.
     """
-    # se a soma de 2 lados deve ser igual ou maior que o lado restante
+    # se a soma de 2 lados não é igual ou maior que o lado restante
     if not (a + b >= c and b + c >= a and a + c >= b):
         return "Não forma um triângulo"
 
@@ -112,8 +113,7 @@ def maior_dia_do_mes(mes, ano):
     }
     if ano_bissexto(ano) and mes == 2:
         return meses[2] + 1
-    else:
-        return meses[mes]
+    return meses[mes]
 
 
 def data_valida(data):
@@ -142,10 +142,10 @@ def data_valida(data):
         11: 30,
         12: 31,
     }
-    data_limpa = data.split("/")
-    dia = int(data_limpa[0])
-    mes = int(data_limpa[1])
-    ano = int(data_limpa[2])
+    data_separada = data.split("/")
+    dia = int(data_separada[0])
+    mes = int(data_separada[1])
+    ano = int(data_separada[2])
 
     if not mes in meses or ano == 0:
         return False

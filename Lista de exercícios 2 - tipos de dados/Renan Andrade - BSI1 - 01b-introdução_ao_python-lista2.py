@@ -13,11 +13,11 @@ def palindromo(texto):
     Retorna:
         bool: True ou False, dependendo dd texto ser palíndromo ou não.
     """
-
-    # remove caracteres especiais
-    texto_limpo = "".join(letra for letra in texto if letra.isalnum())
-    texto_invertido = texto_limpo[::-1]
-    return texto_limpo.lower() == texto_invertido.lower()
+    texto = "".join(texto.split("!"))
+    texto = "".join(texto.split("?"))
+    texto = "".join(texto.split(":"))
+    texto = "".join(texto.split(" "))
+    return texto.lower() == texto[::-1].lower()
 
 
 def troca_caixa(texto):
@@ -30,12 +30,13 @@ def troca_caixa(texto):
     Retorna:
         string: o texto convertido, conforme o enunciado.
     """
-    vogais = ["a", "e", "i", "o", "u"]
-    texto_caixa_alta = ""
-    for letra in texto:
-        # concatena em caixa alta se a letra for vogal
-        texto_caixa_alta += letra.upper() if letra.lower() in vogais else letra.lower()
-    return texto_caixa_alta
+    texto = texto.lower()
+    texto = texto.replace("a", "A")
+    texto = texto.replace("e", "E")
+    texto = texto.replace("i", "I")
+    texto = texto.replace("o", "O")
+    texto = texto.replace("u", "U")
+    return texto
 
 
 def imprime_mes_por_extenso(data):
@@ -62,12 +63,8 @@ def imprime_mes_por_extenso(data):
         "11": "novembro",
         "12": "dezembro",
     }
-    data_limpa = data.split("/")
-    dia = data_limpa[0]
-    mes = meses[data_limpa[1]]
-    ano = data_limpa[2]
-
-    data_formatada = "".join(f"{dia} de {mes} de {ano}")
+    dia, mes, ano = data.split("/")
+    data_formatada = "".join(f"{dia} de {meses[mes]} de {ano}")
     return data_formatada
 
 
@@ -118,8 +115,9 @@ def maximo(lista):
     Retorna:
         int: o maior elemento da lista.
     """
-    lista.sort()
-    return lista[-1]
+    # lista.sort()
+    # return lista[-1]
+    return max(lista)
 
 
 def minimo(lista):
@@ -131,8 +129,9 @@ def minimo(lista):
     Retorna:
         int: o menor elemento da lista.
     """
-    lista.sort()
-    return lista[0]
+    # lista.sort()
+    # return lista[0]
+    return min(lista)
 
 
 def maior_menor(lista):
@@ -144,8 +143,9 @@ def maior_menor(lista):
     Retorna:
         uma tupla com dois números inteiros, o maior e o menor da lista.
     """
-    lista.sort()
-    return (lista[-1], lista[0])
+    # lista.sort()
+    # return (lista[-1], lista[0])
+    return (max(lista), min(lista))
 
 
 def media_saltos_lista(saltos):
@@ -159,11 +159,9 @@ def media_saltos_lista(saltos):
         float: a média dos saltos, de acordo com o enunciado.
     """
     saltos.sort()
-    saltos = saltos[1:-1:]
-    pontuacao_salto = 0
-    for salto in saltos:
-        pontuacao_salto += salto
-    media_saltos = round(pontuacao_salto / len(saltos), 2)
+    saltos = saltos[1:-1:]  # remove primeiro e último elementos
+    pontuacao_salto = sum(saltos)
+    media_saltos = pontuacao_salto / len(saltos)
     return media_saltos
 
 
@@ -231,9 +229,7 @@ def media_temperaturas(temperaturas):
     Retorna:
         float: a média das temperaturas.
     """
-    soma_temperatura = 0
-    for temperatura in temperaturas:
-        soma_temperatura += temperatura
+    soma_temperatura = sum(temperaturas)
     media_temperatura = round(soma_temperatura / len(temperaturas), 2)
     return media_temperatura
 
@@ -250,24 +246,22 @@ def leet(texto):
     Retorna:
         string: o texto convertido, conforme o enunciado.
     """
-    dicionario_troca_leet = {
-        "a": "4",
-        "e": "3",
-        "g": "9",
-        "i": "1",
-        "s": "5",
-        "t": "7",
-        "o": "0",
-    }
-    texto_leet = ""
-    for letra in texto:
-        # concatena em leet se a letra estiver no dicionário
-        texto_leet += (
-            dicionario_troca_leet[letra.lower()]
-            if letra.lower() in dicionario_troca_leet
-            else letra
-        )
-    return texto_leet
+    texto = texto.replace("a", "4")
+    texto = texto.replace("e", "3")
+    texto = texto.replace("g", "9")
+    texto = texto.replace("i", "1")
+    texto = texto.replace("s", "5")
+    texto = texto.replace("t", "7")
+    texto = texto.replace("o", "0")
+
+    texto = texto.replace("A", "4")
+    texto = texto.replace("E", "3")
+    texto = texto.replace("G", "9")
+    texto = texto.replace("I", "1")
+    texto = texto.replace("S", "5")
+    texto = texto.replace("T", "7")
+    texto = texto.replace("O", "0")
+    return texto
 
 
 def apaga(texto, n):

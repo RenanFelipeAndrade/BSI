@@ -5,4 +5,5 @@ hours_spent = round(distance / speed, 2)
 
 
 print(
-    f"O tempo gasto para percorrer {distance} km a {speed} km/h é: {hours_spent} horas")
+    f"O tempo gasto para percorrer {distance} km a {speed} km/h é: {hours_spent} horas"
+)

@@ -1,5 +1,7 @@
 # Lista de exercícios - Condições (Adicional)
 
+from math import floor
+
 
 def situacao_aluno(nota1, nota2, nota3, faltas, aulas_ministradas):
     """
@@ -18,6 +20,11 @@ def situacao_aluno(nota1, nota2, nota3, faltas, aulas_ministradas):
     Returns:
         string: a situação do aluno
     """
+    porcentagem_faltas = faltas * 100 / aulas_ministradas
+    if porcentagem_faltas > 25:
+        return "RF"
+
+    return "AP" if (nota1 + nota2 + nota3) / 3 >= 7 else "EF"
 
 
 def aumento_preco(preco):
@@ -35,6 +42,21 @@ def aumento_preco(preco):
         tupla de floats: preco atual, percentual de aumento, valor do aumento e
                             novo preço, todos com duas casas decimais.
     """
+    if preco <= 280:
+        novo_preco = round(preco * 1.2, 2)
+        return (preco, 20, novo_preco - preco, novo_preco)
+
+    elif preco <= 700:
+        novo_preco = round(preco * 1.15, 2)
+        return (preco, 15, novo_preco - preco, novo_preco)
+
+    elif preco <= 1500:
+        novo_preco = round(preco * 1.1, 2)
+        return (preco, 10, novo_preco - preco, novo_preco)
+
+    else:
+        novo_preco = round(preco * 1.05, 2)
+        return (preco, 5, novo_preco - preco, novo_preco)
 
 
 def idade_canina(idade_humana, porte_do_cao):
@@ -53,6 +75,15 @@ def idade_canina(idade_humana, porte_do_cao):
     Retorna:
         int: a idade canina do ser humano
     """
+    # dicionario > if e else
+    # fator = {"pequeno": 5, "medio": 6, "grande": 7}
+    # return floor(idade_humana / fator[porte_do_cao])
+    if porte_do_cao == "pequeno":
+        return floor(idade_humana / 5)
+    elif porte_do_cao == "medio":
+        return floor(idade_humana / 6)
+    else:
+        return floor(idade_humana / 7)
 
 
 def aumento_salario(salario):
@@ -71,6 +102,15 @@ def aumento_salario(salario):
     Retorna:
         float: novo salário, com duas casas decimais.
     """
+    salario_minimo = 724
+    if salario / salario_minimo <= 1:
+        return round(salario * 1.2, 2)
+    elif salario / salario_minimo <= 2:
+        return round(salario * 1.15, 2)
+    elif salario / salario_minimo <= 5:
+        return round(salario * 1.1, 2)
+    else:
+        return round(salario * 1.05, 2)
 
 
 def nota_para_conceito(nota):
@@ -89,6 +129,16 @@ def nota_para_conceito(nota):
     Retorna:
         string: o conceito correspondente
     """
+    if nota >= 9:
+        return "A"
+    elif nota >= 8:
+        return "B"
+    elif nota >= 7:
+        return "C"
+    elif nota >= 6:
+        return "D"
+    else:
+        return "E"
 
 
 def imc(peso, altura):

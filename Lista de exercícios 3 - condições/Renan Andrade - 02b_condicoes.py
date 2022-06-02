@@ -159,6 +159,15 @@ def imc(peso, altura):
     Retorna:
         string: índice de massa corporal
     """
+    imc = peso / altura**2
+    if imc <= 18.5:
+        return "Subpeso"
+    elif imc <= 25.0:
+        return "Normal"
+    elif imc <= 30.0:
+        return "Sobrepeso"
+    else:
+        return "Obeso"
 
 
 def converte_hora_24_para_12(horario):
@@ -177,6 +186,16 @@ def converte_hora_24_para_12(horario):
 
 
     """
+    horas, minutos = horario.split(":")
+    horas_int = int(horas)
+
+    if horas_int == 0 or horas_int == 12:
+        horas_int += 12
+
+    if horas_int <= 12:
+        return f"{horas_int}:{minutos} am"
+    else:
+        return f"{horas_int-12}:{minutos} pm"
 
 
 def converte_hora_12_para_24(horario):
@@ -193,6 +212,17 @@ def converte_hora_12_para_24(horario):
     Retorna:
         string: horario no formato 24 horas
     """
+    tempo, sufixo = horario.split(" ")
+    horas, minutos = tempo.split(":")
+    horas_int = int(horas)
+
+    if horas_int == 0 or horas_int == 12:
+        horas_int -= 12
+
+    if sufixo == "pm":
+        return f"{horas_int + 12}:{minutos}"
+    horas = horas_int if len(str(horas_int)) > 1 else f"0{horas_int}"
+    return f"{horas}:{minutos}"
 
 
 def conta_combustivel(qtde_litros, tipo_combustivel, tipo_pagamento):
@@ -215,6 +245,10 @@ def conta_combustivel(qtde_litros, tipo_combustivel, tipo_pagamento):
     Returns:
         float: o valor a ser pago, com duas casas decimais
     """
+    precos = {"a": 3.159, "g": 3.739, "d": 3.090}
+    if tipo_pagamento == "c":
+        return round(qtde_litros * precos[tipo_combustivel], 2)
+    return round((qtde_litros * precos[tipo_combustivel]) * 0.9, 2)
 
 
 def comprar_frutas(morango=0, uva=0):
@@ -238,6 +272,13 @@ def comprar_frutas(morango=0, uva=0):
     Retorna:
         float: o preço a pagar, com 2 casas decimais
     """
+    preco_uvas = uva * 1.8 if uva <= 5 else uva * 1.5
+    preco_morangos = morango * 2.5 if morango <= 5 else morango * 2.2
+    total = preco_morangos + preco_uvas
+
+    if morango + uva > 8 or total > 25:
+        return round(total * 0.9, 2)
+    return round(total, 2)
 
 
 # Área de testes: só mexa aqui se souber o que está fazendo!
@@ -343,7 +384,7 @@ def main():
     test(converte_hora_24_para_12("23:00"), "11:00 pm")
     test(converte_hora_24_para_12("23:59"), "11:59 pm")
 
-    # print("Converte hora 12 para 24:")
+    print("Converte hora 12 para 24:")
     # # 1- Use “00:00” para representar a meia-noite.
     test(converte_hora_12_para_24("12:00 am"), "00:00")
     test(converte_hora_12_para_24("12:01 am"), "00:01")

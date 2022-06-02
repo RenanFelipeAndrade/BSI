@@ -268,6 +268,13 @@ def fibonacci(n):
         uma lista de elementos inteiros correspondendo aos n primeiros elementos da série
         de Fibonacci.
     """
+    lista = []
+    for item in range(n):
+        if len(lista) <= 1:
+            lista.append(1)
+        else:
+            lista.append(lista[-1] + lista[-2])
+    return lista
 
 
 def altera_salarios(salarios):
@@ -284,6 +291,19 @@ def altera_salarios(salarios):
     Retorna:
         uma lista de elementos float, correspondendo aos salários corrigidos.
     """
+    lista = []
+    sm = 724
+    for item in salarios:
+        if item <= sm:
+            lista.append(item * 1.2)
+        elif item <= 2 * sm:
+            lista.append(item * 1.15)
+        elif item <= 5 * sm:
+            lista.append(item * 1.1)
+        else:
+            lista.append(item * 1.05)
+        lista[-1] = round(lista[-1], 2)
+    return lista
 
 
 # Área de testes: só mexa aqui se souber o que está fazendo!

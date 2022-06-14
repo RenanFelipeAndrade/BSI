@@ -273,6 +273,7 @@ def fibonacci(n):
         if len(lista) <= 1:
             lista.append(1)
         else:
+            print(lista[-1], lista[-2])
             lista.append(lista[-1] + lista[-2])
     return lista
 
@@ -445,6 +446,7 @@ def main():
     test(fibonacci(2), [1, 1])
     test(fibonacci(3), [1, 1, 2])
     test(fibonacci(4), [1, 1, 2, 3])
+    test(fibonacci(10), [1, 1, 2, 3, 5, 8, 13, 21, 34, 55])
 
     print(" Aumenta salários:")
     test(

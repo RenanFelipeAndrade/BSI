@@ -11,6 +11,7 @@ export function somaInteiros(a, b) {
     Retorna:
         número: a soma dos dois valores.
     */
+  return a + b;
 }
 
 export function metrosParaMilimetros(metros) {
@@ -24,6 +25,7 @@ export function metrosParaMilimetros(metros) {
     Retorna:
         número: o valor convertido para milimetros.
     */
+  return metros * 10 ** 3;
 }
 
 export function tempoParaPercorrerUmaDistancia(distancia, velocidade) {
@@ -38,6 +40,7 @@ export function tempoParaPercorrerUmaDistancia(distancia, velocidade) {
     Retorna:
         número: o tempo, em horas.
     */
+  return (distancia / velocidade).toFixed(2);
 }
 
 export function aumentoSalarial(salario, porcentagem) {
@@ -52,6 +55,7 @@ export function aumentoSalarial(salario, porcentagem) {
     Retorna:
         número: o novo salário, com duas casas decimais.
     */
+  return (salario * (1 + porcentagem / 100)).toFixed(2);
 }
 
 export function precoComDesconto(precoOriginal, percentualDesconto) {
@@ -66,6 +70,7 @@ export function precoComDesconto(precoOriginal, percentualDesconto) {
     Retorna:
         número: o preço final, após o desconto, com duas casas decimais.
     */
+  return (precoOriginal * (1 - percentualDesconto / 100)).toFixed(2);
 }
 
 export function diasParaSegundos(dias, horas, minutos, segundos) {
@@ -82,6 +87,7 @@ export function diasParaSegundos(dias, horas, minutos, segundos) {
     Retorna:
         número: a quantidade de segundos equivalente aos valores de dias, horas, minutos e segundos.
     */
+  return dias * 24 * 60 * 60 + horas * 60 * 60 + minutos * 60 + segundos;
 }
 
 export function celsiusParaFahrenheit(celsius) {
@@ -96,6 +102,7 @@ export function celsiusParaFahrenheit(celsius) {
         número: a temperatura em graus Farenheit.
 
     */
+  return celsius * 1.8 + 32;
 }
 
 export function fahrenheitParaCelsius(fahrenheit) {
@@ -109,6 +116,7 @@ export function fahrenheitParaCelsius(fahrenheit) {
     Retorna:
         número: a temperatura em graus Celsius.
     */
+  return ((fahrenheit - 32) / 1.8).toFixed(2);
 }
 
 export function precoAluguelCarro(dias, km) {
@@ -125,6 +133,7 @@ export function precoAluguelCarro(dias, km) {
         número: o preço do aluguel do carro, com 2 casas decimais,
                 conforme a fórmula dada no enunciado.
     */
+  return dias * 60 + km * 0.15;
 }
 
 export function diasPerdidosPorFumar(cigarrosFumadosPorDia, anosFumando) {
@@ -140,6 +149,9 @@ export function diasPerdidosPorFumar(cigarrosFumadosPorDia, anosFumando) {
     Retorna:
         número: a quantidade de dias que a pessoa perdeu por fumar.
     */
+  return (((cigarrosFumadosPorDia * 10) / 60 / 24) * anosFumando * 365).toFixed(
+    2
+  );
 }
 
 export function doisElevadoADez() {
@@ -150,6 +162,7 @@ export function doisElevadoADez() {
     Retorna:
         número: a quantidade de algarismos que o resultado contém.
     */
+  return String(2 ** 10).length;
 }
 
 export function mediaFinalAprovadoReprovado(p1, p2, ep1, ep2) {
@@ -171,6 +184,7 @@ export function mediaFinalAprovadoReprovado(p1, p2, ep1, ep2) {
         bool: True ou False, dependendo da média ser maior ou igual a 7 ou não.
 
     */
+  return (p1 * 7 + p2 * 7 + ep1 * 3 + ep2 * 3) / 20 >= 7;
 }
 
 export function salarioLiquido(valorHora, horasMensais) {
@@ -190,6 +204,13 @@ export function salarioLiquido(valorHora, horasMensais) {
     Retorna:
         número: o salário líquido, após todos os descontos.
     */
+  let salarioBruto = valorHora * horasMensais;
+  let taxas = { inss: 0.08, IR: 0.11, sindicato: 0.05 };
+  let desconto =
+    salarioBruto * taxas["inss"] +
+    salarioBruto * taxas["IR"] +
+    salarioBruto * taxas["sindicato"];
+  return salarioBruto - desconto;
 }
 
 export function duziasOvos(ovos) {
@@ -205,6 +226,7 @@ export function duziasOvos(ovos) {
         número: a quantidade de dúzias correspondente à quantidade de ovos,
             arredondado pra cima.
     */
+  return Math.ceil(ovos / 12);
 }
 
 export function latasTinta(metrosPintar) {
@@ -220,6 +242,8 @@ export function latasTinta(metrosPintar) {
     Retorna:
         número: a quantidade de latas de tinta, arredondado pra cima.
     */
+
+  return Math.ceil(metrosPintar / (3 * 18));
 }
 
 export function decomporNumero(numero) {
@@ -234,6 +258,10 @@ export function decomporNumero(numero) {
     Retorna:
         tupla de inteiros, com as centenas, dezenas e unidades do numero.
     */
+  // let centenas = Math.round((numero /= 100));
+  // let dezenas = Math.round((numero /= 10));
+  // let unidades = Math.round((numero /= 1));
+  // return [centenas, dezenas, unidades];
 }
 
 export function mediaPonderada(prova, trabalho, exercicio) {

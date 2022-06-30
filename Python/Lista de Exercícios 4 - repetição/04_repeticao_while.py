@@ -90,6 +90,14 @@ def crescimento_populacional(populacao1, populacao2, crescimento1, crescimento2)
     Retorna:
         int: a quantidade de anos que levará para a população da cidade 1 utrapassar a população da cidade 2.
     """
+    anos = 0
+    if crescimento1 <= crescimento2:
+        return 0
+    while populacao1 < populacao2:
+        populacao1 += populacao1 * (crescimento1 / 100)
+        populacao2 += populacao2 * (crescimento2 / 100)
+        anos += 1
+    return anos
 
 
 def fibonacci(n):
@@ -103,6 +111,14 @@ def fibonacci(n):
         uma lista de elementos inteiros correspondendo aos n primeiros elementos da série
         de Fibonacci.
     """
+    serie = []
+    while n > 0:
+        if len(serie) <= 1:
+            serie.append(1)
+        else:
+            serie.append(serie[-1] + serie[-2])
+        n -= 1
+    return serie
 
 
 def fatorial(numero):
@@ -116,6 +132,11 @@ def fatorial(numero):
     Retorna:
         int: o fatorial de numero.
     """
+    soma = 1
+    while numero > 0:
+        soma *= numero
+        numero -= 1
+    return soma
 
 
 def é_primo(valor):
@@ -128,6 +149,13 @@ def é_primo(valor):
     Retorna:
         bool: True ou False, se o valor e ou não primo.
     """
+    quantidade_divisor = 0
+    divisor = 1
+    while divisor <= valor:
+        if valor % divisor == 0:
+            quantidade_divisor += 1
+        divisor += 1
+    return quantidade_divisor == 2
 
 
 def quantidade_de_primos(inicio, fim):
@@ -141,6 +169,12 @@ def quantidade_de_primos(inicio, fim):
     Retorna:
         int: a quantidade de números primos dentro do intervalo especificado.
     """
+    quantidade_primo = 0
+    while inicio <= fim:
+        if é_primo(inicio):
+            quantidade_primo += 1
+        inicio += 1
+    return quantidade_primo
 
 
 def lista_de_primos(inicio, fim):
@@ -154,6 +188,12 @@ def lista_de_primos(inicio, fim):
     Retorna:
         lista de inteiros, os primos dentro do intervalo especificado.
     """
+    lista_primo = []
+    while inicio <= fim:
+        if é_primo(inicio):
+            lista_primo.append(inicio)
+        inicio += 1
+    return lista_primo
 
 
 def serie1(n):
@@ -167,6 +207,12 @@ def serie1(n):
         float: a soma dos valores da série, segundo a fórmula e o valor de n informados.
 
     """
+    soma = 0
+    divisor = 1
+    while divisor <= n:
+        soma += 1 / divisor
+        divisor += 1
+    return round(soma, 2)
 
 
 def serie2(n):
@@ -179,6 +225,14 @@ def serie2(n):
     Retorna:
         float: a soma dos valores da série, segundo a fórmula e o valor de n informados.
     """
+    soma = 0
+    numerador = 1
+    divisor = 1
+    while numerador <= n:
+        soma += numerador / divisor
+        divisor += 2
+        numerador += 1
+    return round(soma, 2)
 
 
 def serie_pi(n):
@@ -192,6 +246,17 @@ def serie_pi(n):
     Retorna:
         float: o valor de pi calculado.
     """
+    pi = 0
+    divisor = 1
+    iteracao = 0
+    while iteracao < n:
+        if iteracao % 2 != 0:
+            pi -= 4 / divisor
+        else:
+            pi += 4 / divisor
+        iteracao += 1
+        divisor += 2
+    return round(pi, 6)
 
 
 # Área de testes: só mexa aqui se souber o que está fazendo!

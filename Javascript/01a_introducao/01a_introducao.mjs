@@ -258,10 +258,15 @@ export function decomporNumero(numero) {
     Retorna:
         tupla de inteiros, com as centenas, dezenas e unidades do numero.
     */
-  // let centenas = Math.round((numero /= 100));
-  // let dezenas = Math.round((numero /= 10));
-  // let unidades = Math.round((numero /= 1));
-  // return [centenas, dezenas, unidades];
+  const centenas = Math.floor(numero / 100);
+  numero -= centenas * 100;
+
+  const dezenas = Math.floor(numero / 10);
+  numero -= dezenas * 10;
+
+  const unidades = numero;
+
+  return [centenas, dezenas, unidades];
 }
 
 export function mediaPonderada(prova, trabalho, exercicio) {
@@ -281,6 +286,8 @@ export function mediaPonderada(prova, trabalho, exercicio) {
     Retorna:
         float: média ponderada das notas, com 1 casa decimal
     */
+
+  return (prova * 7 + trabalho * 2 + exercicio) / 10;
 }
 
 export function aluguelAirBnB(valorDiaria, dias) {
@@ -297,4 +304,5 @@ export function aluguelAirBnB(valorDiaria, dias) {
     Retorna:
         float: o valor do aluguel, com duas casas decimais
     */
+  return valorDiaria * dias + 75 + valorDiaria * dias * 0.05;
 }

@@ -1,11 +1,15 @@
 from numpy import linspace
 
 
-def funcao(x):
-    return x**5 - 7 * x**4 + 8 * x**2 + 7
-    # x = -1 y = 6
-    # x = -0.5 y = valor negativo
-    # return -3 * x**7 + 4 * x**6 - 8 * x**3 - 8
+def f(x):
+    return (
+        0.571 * x**5
+        + 11.18 * x**4
+        + 3.918 * x**3
+        + -2.691 * x**2
+        + 0.912 * x
+        + 4.705
+    )
 
 
 def valores_em_y(valor_inicial, valor_final):
@@ -14,10 +18,10 @@ def valores_em_y(valor_inicial, valor_final):
     valor_inicial, valor_final = min([valor_inicial, valor_final]), max(
         [valor_inicial, valor_final]
     )
-    intervalo = linspace(valor_inicial, valor_final, 10)
+    intervalo = linspace(valor_inicial, valor_final, 100)
 
     for x in intervalo:
-        valor = funcao(x)
+        valor = f(x)
         valores_x.append(x)
         valores_y.append(valor)
 
@@ -43,7 +47,7 @@ def encontra_mudanca_sinal(lista_valores_x, lista_valores_y):
 
 def busca_binaria(intervalo_x, intervalo_y):
     metade = (intervalo_x[0] + intervalo_x[1]) / 2
-    novo_y = funcao(metade)
+    novo_y = f(metade)
     if (abs(novo_y) - abs(intervalo_y[0])) < (abs(novo_y) - abs(intervalo_y[1])):
         intervalo_y[0] = novo_y
         intervalo_x[0] = metade
@@ -57,7 +61,7 @@ def busca_binaria(intervalo_x, intervalo_y):
     return {"intervalo_x": intervalo_x, "intervalo_y": intervalo_y}
 
 
-lista_valores = valores_em_y(-1, -1.5)
+lista_valores = valores_em_y(-20, 20)
 intervalos = encontra_mudanca_sinal(lista_valores["entrada"], lista_valores["saida"])
-for _ in range(5):
+for _ in range(20):
     intervalos = busca_binaria(intervalos["intervalo_x"], intervalos["intervalo_y"])

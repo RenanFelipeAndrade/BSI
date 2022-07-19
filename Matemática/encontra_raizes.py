@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+
+
 def f(x):
     return (
         0.571 * x**5
@@ -49,10 +52,16 @@ def encontra_mudanca_sinal(lista_valores_x, lista_valores_y):
     return {"intervalos_x": intervalos_x, "intervalos_y": intervalos_y}
 
 
-def busca_binaria(intervalos_x, intervalos_y, posicao):
+def busca_binaria(intervalos_x, intervalos_y, posicao, iteracao, iteracoes, erro):
     if posicao >= len(intervalos_x):
-        return {"intervalos_x": intervalos_x, "intervalos_y": intervalos_y}
+        return {
+            "intervalos_x": intervalos_x,
+            "intervalos_y": intervalos_y,
+            "erro": erro,
+            "iteracoes": iteracoes,
+        }
 
+    iteracoes.append(iteracao)
     novo_intervalo_x = []
     novo_intervalo_y = []
     metade = (intervalos_x[posicao][0] + intervalos_x[posicao][1]) / 2
@@ -86,23 +95,45 @@ def busca_binaria(intervalos_x, intervalos_y, posicao):
             novo_intervalo_x.append(intervalos_x[posicao][0])
             novo_intervalo_x.append(metade)
 
-    if (abs(novo_y - intervalos_y[posicao][0]) < 10**-6) or (
-        abs(novo_y - intervalos_y[posicao][1]) < 10**-6
+    if abs(metade - intervalos_x[posicao][0]) < abs(metade - intervalos_x[posicao][1]):
+        erro.append(abs(metade - intervalos_x[posicao][0]))
+    else:
+        erro.append(abs(metade - intervalos_x[posicao][1]))
+
+    iteracao += 1
+    if (abs(metade - intervalos_x[posicao][0]) < 10**-6) or (
+        abs(metade - intervalos_x[posicao][1]) < 10**-6
     ):
         intervalos_x[posicao] = novo_intervalo_x
         intervalos_y[posicao] = novo_intervalo_y
         if posicao < len(intervalos_x):
             posicao += 1
-            return busca_binaria(intervalos_x, intervalos_y, posicao)
-        return {"intervalos_x": intervalos_x, "intervalos_y": intervalos_y}
+            return busca_binaria(
+                intervalos_x, intervalos_y, posicao, iteracao, iteracoes, erro
+            )
     else:
         intervalos_x[posicao] = novo_intervalo_x
         intervalos_y[posicao] = novo_intervalo_y
-        return busca_binaria(intervalos_x, intervalos_y, posicao)
+        return busca_binaria(
+            intervalos_x, intervalos_y, posicao, iteracao, iteracoes, erro
+        )
 
 
 lista_valores = valores_em_y(-20, 20)
 intervalos = encontra_mudanca_sinal(
     lista_valores["valores_x"], lista_valores["valores_y"]
 )
-print(busca_binaria(intervalos["intervalos_x"], intervalos["intervalos_y"], posicao=0))
+resultado_refinado = busca_binaria(
+    intervalos["intervalos_x"],
+    intervalos["intervalos_y"],
+    posicao=0,
+    iteracao=0,
+    iteracoes=[],
+    erro=[],
+)
+
+
+fig, ax = plt.subplots()
+print(resultado_refinado["iteracoes"], resultado_refinado["erro"])
+ax.plot(resultado_refinado["iteracoes"], resultado_refinado["erro"])
+plt.show()

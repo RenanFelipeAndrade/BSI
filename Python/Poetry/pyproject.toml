@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "PoetryTutorial"
 version = "0.1.0"
-description = "A tutorial on how to use poetry and git"
+description = "A virtual enviroment to develop college codes"
 authors = ["Renan Andrade <Fel9.renan02@gmail.com>"]
 
 [tool.poetry.dependencies]

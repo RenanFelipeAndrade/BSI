@@ -15,11 +15,14 @@ def main(tema):
         print("A dificuldade é:", dificuldade)
         print("Você ganha se acerta em, no máximo, 5 tentativas")
 
+        print("\n------ Se quiser desistir, digite 'parar' ------")
         palpite = input("Qual é a palavra? \n> ")
         tentativa += 1
 
-        if palpite.lower() == palavra_sorteada.lower():
+        if palpite.lower() == "parar":
+            return print(f"Uma pena :/\nA palavra era: {palavra_sorteada}")
 
+        elif palpite.lower() == palavra_sorteada.lower():
             print(
                 f"Você ganhou! \nForam {tentativa} {'tentativas' if tentativa > 1 else 'tentativa'}"
             ) if tentativa <= 5 else print(

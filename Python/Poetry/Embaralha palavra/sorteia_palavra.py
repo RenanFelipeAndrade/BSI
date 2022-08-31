@@ -147,7 +147,7 @@ def sorteia_palavra(tema):
     temas = {1: cidades, 2: objetos, 3: paises, 4: verbos}
 
     dificuldades = ["fácil", "médio", "difícil"]
-    dificuldade_sorteada = dificuldades[randint(0, len(dificuldades))]
+    dificuldade_sorteada = dificuldades[randint(0, len(dificuldades) - 1)]
 
     lista_palavras = temas[tema][dificuldade_sorteada[0]]
 

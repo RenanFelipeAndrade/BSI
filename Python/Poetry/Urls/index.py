@@ -71,17 +71,20 @@ def main():
         "http://beans.itcarlow.ie/prices.html",
         "http://beans.itcarlow.ie/prices-loyalty.html",
     ]
+
+    preco_anterior = 0
     while True:
         precos = [calcula_preco(url) for url in urls]
 
         url_menor_preco = urls[precos.index(min(precos))]
-        url_e_preco = (url_menor_preco, min(precos))
-        if url_e_preco[1] <= 4.7:
+        url, preco_atual = url_menor_preco, min(precos)
+        if preco_atual <= 4.7 and preco_atual != preco_anterior:
             envia_email(
-                f"O preço está em {url_e_preco[1]}! Acesse a oferta através de: {url_e_preco[0]}"
+                f"O preço está em {preco_atual}! Acesse a oferta através de: {url}"
             )
+            preco_anterior = preco_atual
         else:
-            print("Não há preços abaixo de 4.70 \n")
+            print("O preço não está no esperado ou não alterou ainda \n")
         sleep(2)
 
 

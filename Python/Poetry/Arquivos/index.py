@@ -20,7 +20,7 @@ def main():
         lista_letras = calcular_frequencia_letras(livro[lingua])
         frequencia_letras[lingua] = Counter(lista_letras)
 
-    mostra_grafico(frequencia_letras)
+    mostra_grafico(frequencia_letras, linguas)
 
 
 if __name__ == "__main__":

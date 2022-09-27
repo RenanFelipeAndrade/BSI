@@ -21,7 +21,6 @@ def envia_email(
     """
     usuario = os.environ.get("GOOGLE_APP_EMAIL")
     senha = os.environ.get("GOOGLE_APP_PASSWORD")
-    print(usuario, senha)
 
     mensagem = MIMEText(texto)
     mensagem["Subject"] = titulo

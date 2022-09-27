@@ -3,9 +3,10 @@ from frase_motivacional import frase_motivacional
 from embaralha_palavra import embaralha_palavra
 
 
-def main(tema):
+def main(tema, dificuldade_selecionada):
     tentativa = 0
-    palavra_sorteada, dificuldade = sorteia_palavra(tema)
+    palavra_sorteada, dificuldade = sorteia_palavra(
+        tema, dificuldade_selecionada)
     palavra_embaralhada = embaralha_palavra(palavra_sorteada)
 
     while True:
@@ -46,9 +47,22 @@ Escolha um dos temas a seguir (digite o número do tema):
 >> """
             )
         )
-        if tema > 4 or tema < 1:
-            print("--------- Escolha um tema válido! ---------")
+
+        dificuldade = int(
+            input(
+                """
+Escolha uma das dificuldades a seguir (digite o número do dificuldade):
+    1 = fácil
+    2 = médio
+    3 = difícil
+    
+>> """
+            )
+        )
+
+        if tema > 4 or tema < 1 or dificuldade < 1 or dificuldade > 3:
+            print("--------- Escolha um tema e dificuldades válidas! ---------")
         else:
             break
 
-    main(tema)
+    main(tema, dificuldade)

@@ -1,0 +1,143 @@
+{
+  "cidades": {
+    "f": [
+      "lages",
+      "criciúma",
+      "urubici",
+      "macaé",
+      "natal",
+      "cotia",
+      "majé",
+      "itú",
+      "sinóp"
+    ],
+    "m": [
+      "calcaia",
+      "taubaté",
+      "moçoró",
+      "sumaré",
+      "jaraguá",
+      "brusque",
+      "palhoça",
+      "curitiba"
+    ],
+    "d": [
+      "florianópolis",
+      "joinville",
+      "ituporanga",
+      "ressaquinha",
+      "petrópolis",
+      "uberlândia",
+      "ananindeua",
+      "carapicuíba",
+      "itaquaquecetuba",
+      "parnamirim"
+    ]
+  },
+
+  "objetos": {
+    "f": [
+      "garfo",
+      "maiô",
+      "óculos",
+      "jeans",
+      "copo",
+      "harpa",
+      "funil",
+      "pote",
+      "faca"
+    ],
+    "m": [
+      "picareta",
+      "bigorna",
+      "pendulo",
+      "manomêtro",
+      "zabumba",
+      "notebook",
+      "pinico",
+      "cadeira"
+    ],
+    "d": [
+      "estetoscopio",
+      "zarabatana",
+      "quinticlave",
+      "sombrinha",
+      "nebulizador",
+      "namômetro",
+      "lantejoula",
+      "velocípede"
+    ]
+  },
+
+  "paises": {
+    "f": [
+      "suíça",
+      "itália",
+      "chipre",
+      "suécia",
+      "rússia",
+      "china",
+      "chile",
+      "sudão",
+      "irã"
+    ],
+    "m": [
+      "monaco",
+      "austria",
+      "austrália",
+      "equador",
+      "noruega",
+      "albânia",
+      "romênia",
+      "georgia",
+      "turquia",
+      "iraque"
+    ],
+    "d": [
+      "eslovênia",
+      "somália",
+      "guatemala",
+      "nicarágua",
+      "filipinas",
+      "mongólia",
+      "cingapura",
+      "nigéria",
+      "camarões",
+      "uzbequistão",
+      "azerbaijão"
+    ]
+  },
+
+  "verbos": {
+    "f": [
+      "falar",
+      "correr",
+      "pular",
+      "andar",
+      "sonhar",
+      "piscar",
+      "nadar",
+      "sentar"
+    ],
+    "m": [
+      "hibernar",
+      "trafegar",
+      "manipular",
+      "evacuar",
+      "capturar",
+      "caminhar",
+      "desfilar",
+      "reclamar"
+    ],
+    "d": [
+      "desfibrilar",
+      "tergivisar",
+      "perambular",
+      "interpelar",
+      "radicalizar",
+      "auscutar",
+      "impermebealizar",
+      "diagnosticar"
+    ]
+  }
+}
